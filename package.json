@@ -1,6 +1,6 @@
 {
-  "name": "react-mobservable-form",
-  "version": "0.1.1",
+  "name": "react-mobservable-form-demo",
+  "version": "0.1.0",
   "description": "",
   "main": "src/main.js",
   "scripts": {
