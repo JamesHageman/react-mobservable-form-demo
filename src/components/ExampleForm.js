@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { mobservableForm } from '../lib/mobservableForm.js';
 
+import BootstrapInput from './BootstrapInput.js';
+
 class ExampleForm extends Component {
   static propTypes = {
     handleSubmit: React.PropTypes.func.isRequired,
@@ -18,14 +20,8 @@ class ExampleForm extends Component {
     } = this.props;
 
     return <form noValidate onSubmit={handleSubmit}>
-      <div>
-        <input type="text" {...text}/>
-        <span>{text.touched && text.error}</span>
-      </div>
-      <div>
-        <input type="email" {...email}/>
-        <span>{email.touched && email.error}</span>
-      </div>
+      <BootstrapInput type="text" field={text} placeholder="Text..."/>
+      <BootstrapInput type="email" field={email} placeholder="Email..."/>
       <div>
         <button>Submit</button>
         <button type="button" onClick={resetForm}>
