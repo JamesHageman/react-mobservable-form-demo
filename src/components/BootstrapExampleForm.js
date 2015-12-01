@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { mobservableForm } from '../lib/mobservableForm.js';
 
-class ExampleForm extends Component {
+import BootstrapInput from './BootstrapInput.js';
+
+class BootstrapExampleForm extends Component {
   static propTypes = {
     handleSubmit: React.PropTypes.func.isRequired,
     resetForm: React.PropTypes.func.isRequired,
@@ -18,16 +20,8 @@ class ExampleForm extends Component {
     } = this.props;
 
     return <form noValidate onSubmit={handleSubmit}>
-      <div>
-        <input type="text" placeholder="Text..." {...text}/>
-        {text.touched && text.error}
-      </div>
-
-      <div>
-        <input type="email" placeholder="Email..." {...email}/>
-        {email.touched && email.error}
-      </div>
-
+      <BootstrapInput type="text" field={text} placeholder="Text..."/>
+      <BootstrapInput type="email" field={email} placeholder="Email..."/>
       <div>
         <button>Submit</button>
         <button type="button" onClick={resetForm}>
@@ -39,7 +33,7 @@ class ExampleForm extends Component {
 }
 
 export default mobservableForm({
-  form: 'example',
+  form: 'bs_example',
   fields: ['text', 'email'],
   validate: ({ text, email }) => {
     const errors = {};
@@ -54,4 +48,4 @@ export default mobservableForm({
 
     return errors;
   }
-})(ExampleForm);
+})(BootstrapExampleForm);
