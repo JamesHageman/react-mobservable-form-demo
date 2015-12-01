@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { observer } from 'mobservable-react';
 
 class BootstrapInput extends Component {
   render() {
@@ -28,4 +27,4 @@ BootstrapInput.propTypes = {
   onChange: React.PropTypes.func.isRequired
 };
 
-export default observer(BootstrapInput);
+export default BootstrapInput;
