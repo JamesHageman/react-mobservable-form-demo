@@ -22,9 +22,9 @@ class BootstrapExampleForm extends Component {
     return <form noValidate onSubmit={handleSubmit}>
       <BootstrapInput type="text" field={text} placeholder="Text..."/>
       <BootstrapInput type="email" field={email} placeholder="Email..."/>
-      <div>
-        <button>Submit</button>
-        <button type="button" onClick={resetForm}>
+      <div className="form-group">
+        <button className="btn btn-primary">Submit</button>
+        <button className="btn btn-default" type="button" onClick={resetForm}>
           Reset
         </button>
       </div>

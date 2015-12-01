@@ -2,6 +2,18 @@ import React, { Component } from 'react';
 import ExampleForm from './ExampleForm.js';
 import BootstrapExampleForm from './BootstrapExampleForm.js';
 import { observer } from 'mobservable-react';
+import Highlight from 'react-highlight';
+
+const exampleText = require('!!raw-loader!./ExampleForm.js');
+const bsExampleText = require('!!raw-loader!./BootstrapExampleForm.js');
+const bsInputText = require('!!raw-loader!./BootstrapInput.js');
+
+const bsText = `${ bsExampleText }
+
+// --------- BootstrapInput.js -----------
+
+${ bsInputText }
+`;
 
 class App extends Component {
   render() {
@@ -12,18 +24,26 @@ class App extends Component {
       </a>
       <div className="row">
 
-        <div className="col-md-6">
+        <div className="col-lg-6">
           <h2>Basic Example</h2>
           <ExampleForm onSubmit={(data) => {
             alert('`ExampleForm`, from `App`: ' + JSON.stringify(data));
           }}/>
+          <h4>Code:</h4>
+          <Highlight className="javascript">
+            {exampleText}
+          </Highlight>
         </div>
 
-        <div className="col-md-6">
+        <div className="col-lg-6">
           <h2>Bootstrap Example</h2>
           <BootstrapExampleForm onSubmit={(data) => {
             alert('`BootstrapExampleForm`, from `App`: ' + JSON.stringify(data));
           }}/>
+          <h4>Code:</h4>
+          <Highlight className="javascript">
+            {bsText}
+          </Highlight>
         </div>
 
       </div>
