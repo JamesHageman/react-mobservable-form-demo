@@ -1,6 +1,6 @@
 import invariant from 'invariant';
 import React, { Component } from 'react';
-import { observable, map as observableMap, asReference, transaction } from 'mobservable';
+import { map as observableMap, asReference, transaction } from 'mobservable';
 import { observer } from 'mobservable-react';
 
 const formStore = observableMap();
@@ -14,9 +14,15 @@ function setupForm({ form, fields, validate }) {
 
       value: '',
 
-      onChange: asReference((e) => {
+      onChange: asReference((evOrValue) => {
         const field = formStore.get(form).fields[name];
-        field.value = e.target.value;
+        if (evOrValue.preventDefault && evOrValue.stopPropagation) {
+          // evOrValue is an event
+          field.value = evOrValue.target.value;
+        } else {
+          // evOrValue is a plain value
+          field.value = evOrValue;
+        }
       }),
 
       error() {
@@ -26,7 +32,7 @@ function setupForm({ form, fields, validate }) {
   });
 
   formStore.set(form, {
-    fields: observable(fieldMap),
+    fields: fieldMap,
 
     valueMap() {
       const valueMap = {};
