@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { mobservableForm } from '../lib/mobservableForm.js';
+import { mobservableForm } from 'mobservable-form';
 
 class ExampleForm extends Component {
   static propTypes = {

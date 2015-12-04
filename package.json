@@ -33,6 +33,7 @@
     "highlight.js": "^8.9.1",
     "invariant": "^2.2.0",
     "mobservable": "^1.1.2",
+    "mobservable-form": "0.0.4",
     "mobservable-react": "^2.1.0",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
